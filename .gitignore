@@ -183,3 +183,14 @@ stats-cache.json
 .ruff_cache/
 *.local.json
 *.local.md
+
+# Runtime files written when this repo is used as CLAUDE_CONFIG_DIR
+.claude.json
+.claude.json.backup
+.credentials.json
+.last-cleanup
+plugins/installed_plugins.json
+plugins/plugin-usage.json
+memory/
+session-env/
+cache/

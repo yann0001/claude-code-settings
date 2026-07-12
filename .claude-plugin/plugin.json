@@ -2,7 +2,7 @@
   "name": "claude-code-settings",
   "displayName": "Claude Code Settings",
   "version": "2.2.0",
-  "description": "Claude Code settings, agents and skills for spec-driven development workflows",
+  "description": "Claude Code settings, agents and skills for enhanced development workflows",
   "author": {
     "name": "Pengfei Ni",
     "url": "https://github.com/feiskyer/claude-code-settings"

@@ -1,21 +1,8 @@
 # Claude Code 配置与技能集
 
-为 Vibe Coding 打造的 Claude Code 设置、技能（Skills）和子代理（Sub-agents）合集，涵盖功能开发（规格驱动工作流）、代码分析、GitHub 集成和知识管理等增强型开发工作流。
+Claude Code 设置、技能（Skills）和子代理（Sub-agents）合集，涵盖头脑风暴与设计审查、深度调研、GitHub 集成、翻译、图片生成等增强型开发工作流。
 
 > OpenAI Codex 的配置和自定义 prompt 请参考 [feiskyer/codex-settings](https://github.com/feiskyer/codex-settings)。
-
-## 目录
-
-- [安装](#安装)
-- [技能列表](#技能列表)
-- [子代理](#子代理)
-- [配置模板](#配置模板)
-- [脚本工具](#脚本工具)
-- [已知限制](#已知限制)
-- [常见问题](#常见问题)
-- [参考指南](#参考指南)
-- [参考资源](#参考资源)
-- [许可证](#许可证)
 
 ## 安装
 
@@ -113,7 +100,7 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 <details>
 <summary><b>codex-skill</b> — 将任务交给 Codex CLI</summary>
 
-### [codex-skill](plugins/codex-skill)
+### [codex-skill](./skills/codex-skill)
 
 非交互式自动化模式，使用 OpenAI Codex 完成 Claude 设计好的功能或计划。
 
@@ -122,10 +109,10 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 **核心特性：**
 
 - 多种执行模式（只读、工作区写入、完全访问）
-- 模型选择（gpt-5, gpt-5.1, gpt-5.1-codex 等）
+- 默认使用 `~/.codex/config.toml` 中配置的模型
 - 自主执行无需审批
-- JSON 结构化输出
-- 可恢复会话
+- JSON 结构化输出、可恢复会话
+- CLI 完整参考和场景示例见 `references/` 目录
 
 **依赖：** Codex CLI（`npm i -g @openai/codex` 或 `brew install codex`）
 
@@ -134,17 +121,17 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 <details>
 <summary><b>nanobanana-skill</b> — 使用 Gemini 生成图片</summary>
 
-### [nanobanana-skill](plugins/nanobanana-skill)
+### [nanobanana-skill](./skills/nanobanana-skill)
 
-通过 Google Gemini API 生成或编辑图片。
+通过 Google Gemini API 生成或编辑图片。这是默认图片技能——未指明提供商的图片请求都路由到这里。
 
-**触发词：** "nanobanana", "generate image", "create image", "edit image", "图片生成", "AI绘图"
+**触发词：** "nanobanana", "generate image", "create image", "edit image", "图片生成", "生成图片", "AI绘图", "图片编辑"
 
 **核心特性：**
 
 - 多种宽高比和分辨率（1K、2K、4K）
 - 图片编辑功能
-- 多模型选择（gemini-3-pro-image-preview, gemini-2.5-flash-image）
+- 多模型选择（gemini-3.1-flash-image-preview 默认, gemini-3-pro-image-preview 高质量）
 
 **依赖：**
 
@@ -158,9 +145,9 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 
 ### [gpt-image-skill](./skills/gpt-image-skill)
 
-使用 OpenAI GPT Image 模型（gpt-image-2, gpt-image-1 等）生成或编辑图片。
+使用 OpenAI GPT Image 模型（gpt-image-2, gpt-image-1 等）生成或编辑图片。仅在用户明确指定 OpenAI/GPT 时触发；未指明提供商的图片请求由 nanobanana-skill 处理。
 
-**触发词：** "gpt image", "openai image", "draw image", "AI绘图", "画图"
+**触发词：** "gpt image", "openai image", "generate image with openai", "用 openai 画图", "用 GPT 生成图片"
 
 **核心特性：**
 
@@ -179,7 +166,7 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 <details>
 <summary><b>youtube-transcribe-skill</b> — YouTube 字幕提取</summary>
 
-### [youtube-transcribe-skill](plugins/youtube-transcribe-skill)
+### [youtube-transcribe-skill](./skills/youtube-transcribe-skill)
 
 从 YouTube 视频链接提取字幕/转录文本。
 
@@ -342,6 +329,30 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 ```sh
 bash ~/.claude/scripts/update-cc-plugins.sh
 ```
+
+## 开发与测试
+
+修改本仓库的技能或配置后，可以用 `CLAUDE_CONFIG_DIR` 环境变量把 Claude Code 的配置目录直接指向仓库，进行真实测试而不影响 `~/.claude` 下的日常配置：
+
+```sh
+# 在任意项目目录用本仓库的配置启动一次性测试会话
+CLAUDE_CONFIG_DIR=/path/to/claude-code-settings claude
+
+# 非交互式冒烟测试：验证技能是否正确加载
+CLAUDE_CONFIG_DIR=/path/to/claude-code-settings \
+  claude -p "List every skill you can currently invoke" --max-turns 2
+
+# 也可以固定成别名
+alias claude-test='CLAUDE_CONFIG_DIR=/path/to/claude-code-settings claude'
+```
+
+**验证要点：**
+
+- 技能列表应包含仓库 `skills/` 下的技能；`grill-me` 和 `handoff` 因设置了 `disable-model-invocation: true` 不会出现在自动触发列表中，需用 `/grill-me`、`/handoff` 手动调用验证
+- 修改 SKILL.md 描述后，可用自然语言请求（而非 `/skill-name`）测试自动触发是否符合预期
+- 技能结构校验：`cd skills/skill-creator && python3 -m scripts.quick_validate ../<skill-name>`
+
+**注意：** 测试会话会把运行时状态写回仓库目录（`.claude.json`、`projects/`、settings.json 的字段重排等）。运行时产物已在 `.gitignore` 中忽略，但测试后建议 `git diff` 确认 settings.json 没有混入不想入库的个人设置。
 
 ## 已知限制
 
