@@ -2,6 +2,8 @@
 
 Browser-based visual brainstorming companion for showing mockups, diagrams, and options.
 
+**Script location:** All `scripts/` paths below are relative to this skill's directory. Resolve the absolute path before running (e.g., if this skill is at `~/.claude/skills/brainstorming/`, then scripts are at `~/.claude/skills/brainstorming/scripts/`).
+
 ## When to Use
 
 Decide per-question, not per-session. The test: **would the user understand this better by seeing it than reading it?**

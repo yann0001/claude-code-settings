@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+description: "Use this before building new features, creating new components, or designing new systems. Explores user intent, requirements and design through collaborative dialogue before implementation. Trigger when the user describes something they want to build that involves design decisions — not for bug fixes, config changes, or tasks with an obvious single implementation path."
 ---
 
 # Brainstorming Ideas Into Designs
@@ -157,4 +157,4 @@ A browser-based companion for showing mockups, diagrams, and visual options duri
 A question about a UI topic is not automatically a visual question. "What does personality mean in this context?" is a conceptual question — use the terminal. "Which wizard layout works better?" is a visual question — use the browser.
 
 If they agree to the companion, read the detailed guide before proceeding:
-`skills/brainstorming/visual-companion.md`
+`visual-companion.md` (in this skill's directory)
