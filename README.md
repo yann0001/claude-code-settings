@@ -254,6 +254,46 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 </details>
 
 <details>
+<summary><b>grill-me</b> — 高强度追问式设计审查</summary>
+
+### [grill-me](./skills/grill-me)
+
+针对方案或设计的高强度追问式面试，沿着设计决策树逐一深入，过程中同步维护领域模型（术语表和 ADR）。
+
+**触发词：** `/grill-me [方案/设计描述]`（仅手动调用）
+
+**核心特性：**
+
+- 一次只问一个问题，每个问题给出推荐答案
+- 自动对照术语表质疑含糊表达
+- 与代码交叉验证用户陈述
+- 即时更新 `CONTEXT.md` 术语表
+- 审慎创建 ADR（仅限难以逆转的重大决策）
+- 支持单上下文和多上下文（Context Map）仓库
+
+</details>
+
+<details>
+<summary><b>handoff</b> — 会话交接文档生成</summary>
+
+### [handoff](./skills/handoff)
+
+将当前对话压缩为交接文档，供下一个 agent 无缝接续工作。
+
+**触发词：** `/handoff [下一次会话的重点方向]`（仅手动调用）
+
+**核心特性：**
+
+- 结构化交接：背景与目标、已完成工作、当前状态、待办事项、推荐技能、关键上下文
+- 通过路径/URL 引用已有产物，避免重复
+- 自动脱敏处理（API key、密码、PII）
+- 智能判断：对话过短时提示无需生成
+
+**输出：** `$TMPDIR/handoff-YYYY-MM-DD-HHMM.md`
+
+</details>
+
+<details>
 <summary><b>github-fix-issue</b> — 端到端修复 GitHub Issue</summary>
 
 ### [github-fix-issue](./skills/github-fix-issue)
