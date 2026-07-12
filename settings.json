@@ -93,7 +93,6 @@
     "pr-review-toolkit@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
     "video-skills@video-skills": true,
     "youtube-transcribe-skill@claude-code-settings": true
   },

@@ -38,18 +38,13 @@ description: 'Comprehensive description that also serves as the trigger conditio
 
 ```sh
 skills/
-├── reflection/          # Session analysis and CLAUDE.md improvement
-├── eureka/              # Technical breakthrough documentation
 ├── translate/           # Tech article translation to Chinese
-├── command-creator/     # Create Claude Code custom commands
 ├── github-fix-issue/    # Fix GitHub issues end-to-end
 ├── github-review-pr/    # Review GitHub pull requests
 ├── skill-creator/       # Create and benchmark agent skills
 ├── codex-skill/         # Handoff tasks to Codex CLI
 ├── autonomous-skill/    # Long-running task automation
 ├── nanobanana-skill/    # Image generation with Gemini
-├── kiro-skill/          # Interactive feature development
-├── spec-kit-skill/      # Constitution-based development
 ├── deep-research/       # Multi-agent research orchestration
 └── youtube-transcribe-skill/  # YouTube transcript extraction
 ```
@@ -64,8 +59,6 @@ Skills are invoked via slash syntax or triggered automatically:
 
 **Examples:**
 
-- `/reflection deep` - Comprehensive session analysis
-- `/eureka "Discovered batching optimization"` - Document a breakthrough
 - `/translate [text or file]` - Translate to Chinese
 
 ### Skill Development Principles

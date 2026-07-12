@@ -18,8 +18,6 @@ A curated collection of Claude Code settings, skills and sub-agents designed for
 /plugin install codex-skill               # Codex automation
 /plugin install autonomous-skill          # Long-running task automation
 /plugin install nanobanana-skill          # Image generation
-/plugin install kiro-skill                # Kiro workflow
-/plugin install spec-kit-skill            # Spec-Kit workflow
 /plugin install youtube-transcribe-skill  # YouTube transcript extraction
 ```
 
@@ -271,111 +269,6 @@ Claude: [Initiates reconnaissance, proposes sub-objectives, waits for confirmati
 </details>
 
 <details>
-<summary>kiro-skill - Interactive Feature Development</summary>
-
-### [kiro-skill](./skills/kiro-skill)
-
-Interactive feature development workflow from idea to implementation.
-
-**Triggered by**: "kiro", or references to `.kiro/specs/` directory
-
-**Installation:**
-
-```sh
-/plugin marketplace add feiskyer/claude-code-settings
-/plugin install kiro-skill
-```
-
-**Workflow**:
-
-1. **Requirements** → Define what needs to be built (EARS format with user stories)
-2. **Design** → Determine how to build it (architecture, components, data models)
-3. **Tasks** → Create actionable implementation steps (test-driven, incremental)
-4. **Execute** → Implement tasks one at a time
-
-**Usage**:
-
-```text
-You: "I need to create a kiro feature spec for user authentication"
-Claude: [Automatically uses kiro-skill]
-```
-
-</details>
-
-<details>
-<summary>spec-kit-skill - Constitution-Based Development</summary>
-
-### [spec-kit-skill](./skills/spec-kit-skill)
-
-GitHub Spec-Kit integration for constitution-based spec-driven development.
-
-**Triggered by**: "spec-kit", "speckit", "constitution", "specify", or references to `.specify/` directory
-
-**Installation:**
-
-```sh
-/plugin marketplace add feiskyer/claude-code-settings
-/plugin install spec-kit-skill
-```
-
-**Prerequisites**:
-
-```sh
-# Install spec-kit CLI
-uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
-
-# Initialize project
-specify init . --ai claude
-```
-
-**7-Phase Workflow**:
-
-1. **Constitution** → Establish governing principles
-2. **Specify** → Define functional requirements
-3. **Clarify** → Resolve ambiguities (max 5 questions)
-4. **Plan** → Create technical strategy
-5. **Tasks** → Generate dependency-ordered tasks
-6. **Analyze** → Validate consistency (read-only)
-7. **Implement** → Execute implementation
-
-**Usage**:
-
-```text
-You: "Let's create a constitution for this project"
-Claude: [Automatically uses spec-kit-skill, detects CLI, guides through phases]
-```
-
-</details>
-
-<details>
-<summary>reflection - Session analysis and CLAUDE.md improvement</summary>
-
-### [reflection](./skills/reflection)
-
-Analyze development sessions, capture learnings, and improve Claude Code instructions. Supports two modes:
-
-- **Quick mode** (`/reflection`): Analyzes chat history to identify and implement CLAUDE.md improvements
-- **Deep mode** (`/reflection deep`): Comprehensive session analysis covering problems solved, patterns, user preferences, system understanding, and knowledge gaps
-
-</details>
-
-<details>
-<summary>eureka - Technical breakthrough documentation</summary>
-
-### [eureka](./skills/eureka)
-
-Capture technical breakthroughs and transform them into actionable, reusable documentation. Creates structured breakthrough files in `breakthroughs/` with problem/insight/implementation/impact sections and maintains a searchable index.
-
-**Usage:**
-
-```text
-You: "/eureka Reduced API response time from 2s to 100ms by implementing request batching"
-Claude: [Creates breakthroughs/2025-01-15-api-request-batching.md, updates INDEX.md]
-```
-
-</details>
-
-<details>
 <summary>translate - Tech article translation to Chinese</summary>
 
 ### [translate](./skills/translate)
@@ -388,15 +281,6 @@ Translate English or Japanese tech articles into natural, fluent Chinese using a
 You: "/translate [paste text or provide file path]"
 Claude: [Outputs polished Chinese translation]
 ```
-
-</details>
-
-<details>
-<summary>command-creator - Create Claude Code custom commands</summary>
-
-### [command-creator](./skills/command-creator)
-
-Create Claude Code custom slash commands with proper structure, frontmatter, and best practices.
 
 </details>
 
@@ -440,7 +324,6 @@ The `agents/` directory contains specialized AI [subagents](https://docs.anthrop
 - **deep-reflector** - Comprehensive session analysis and learning capture
 - **insight-documenter** - Technical breakthrough documentation specialist
 - **ui-engineer** - UI/UX development specialist
-- **command-creator** - Expert at creating new Claude Code custom commands
 
 </details>
 

@@ -18,24 +18,6 @@
       }
     },
     {
-      "name": "kiro-skill",
-      "source": "./plugins/kiro-skill",
-      "description": "Interactive feature development workflow from idea to implementation (Requirements → Design → Tasks → Execute)",
-      "version": "1.0.3",
-      "author": {
-        "name": "Pengfei Ni"
-      }
-    },
-    {
-      "name": "spec-kit-skill",
-      "source": "./plugins/spec-kit-skill",
-      "description": "GitHub Spec-Kit integration for constitution-based spec-driven development (7-phase workflow)",
-      "version": "1.0.3",
-      "author": {
-        "name": "Pengfei Ni"
-      }
-    },
-    {
       "name": "codex-skill",
       "source": "./plugins/codex-skill",
       "description": "Leverage OpenAI Codex (GPT-5/GPT-5.1) for non-interactive automation mode and hands-off task execution",
