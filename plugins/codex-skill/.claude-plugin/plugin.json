@@ -1,7 +1,8 @@
 {
   "name": "codex-skill",
-  "version": "1.0.3",
-  "description": "Leverage OpenAI Codex (GPT-5/GPT-5.1) for non-interactive automation mode and hands-off task execution",
+  "displayName": "Codex Skill",
+  "version": "1.1.0",
+  "description": "Leverage OpenAI Codex for non-interactive automation mode and hands-off task execution",
   "author": {
     "name": "Pengfei Ni",
     "url": "https://github.com/feiskyer/claude-code-settings"

@@ -4,54 +4,25 @@
     "name": "Pengfei Ni"
   },
   "metadata": {
-    "version": "2.1.7",
     "description": "Claude Code settings and skills for spec-driven development workflows"
   },
   "plugins": [
     {
       "name": "claude-code-settings",
       "source": "./",
-      "description": "Claude Code settings, commands, agent and skills (all in one)",
-      "version": "2.1.7",
-      "author": {
-        "name": "Pengfei Ni"
-      }
+      "description": "Claude Code settings, agents and skills (all in one). Do not install sub-plugins below together with this one — they are already included."
     },
     {
       "name": "codex-skill",
-      "source": "./plugins/codex-skill",
-      "description": "Leverage OpenAI Codex (GPT-5/GPT-5.1) for non-interactive automation mode and hands-off task execution",
-      "version": "1.0.3",
-      "author": {
-        "name": "Pengfei Ni"
-      }
+      "source": "./plugins/codex-skill"
     },
     {
       "name": "nanobanana-skill",
-      "source": "./plugins/nanobanana-skill",
-      "description": "Generate or edit images using Google Gemini API via nanobanana",
-      "version": "1.0.3",
-      "author": {
-        "name": "Pengfei Ni"
-      }
+      "source": "./plugins/nanobanana-skill"
     },
     {
       "name": "youtube-transcribe-skill",
-      "source": "./plugins/youtube-transcribe-skill",
-      "description": "Extract subtitles/transcripts from YouTube videos via CLI or browser automation",
-      "version": "1.0.3",
-      "author": {
-        "name": "Pengfei Ni"
-      }
-    },
-    {
-      "name": "autonomous-skill",
-      "source": "./plugins/autonomous-skill",
-      "description": "Use when user wants to execute long-running tasks that require multiple sessions to complete. This skill manages task decomposition, progress tracking, and autonomous execution using Claude Code headless mode with auto-continuation. Trigger phrases: autonomous, long-running task, multi-session, 自主执行, 长时任务, autonomous skill.",
-      "version": "1.0.3",
-      "author": {
-        "name": "Pengfei Ni"
-      }
+      "source": "./plugins/youtube-transcribe-skill"
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
 name: gpt-image-skill
-description: 'Generate or edit images using OpenAI GPT Image API (gpt-image-2, gpt-image-1, etc). Triggers: "gpt image", "openai image", "generate image with openai", "draw image", "create image", "image generation", "AI drawing", "图片生成", "AI绘图", "生成图片", "画图". Use this skill whenever the user wants to generate or edit images and mentions OpenAI, GPT, or when OPENAI_API_KEY is available.'
+description: 'Generate or edit images using OpenAI GPT Image API (gpt-image-2, gpt-image-1, etc). Use ONLY when the user explicitly names OpenAI or GPT as the provider: "gpt image", "openai image", "generate image with openai", "用 openai 画图", "用 GPT 生成图片". For generic image requests without a provider, use nanobanana-skill instead. Do NOT use for diagrams (架构图/流程图) — draw those with Mermaid or code.'
 allowed-tools: Read, Write, Glob, Grep, Task, Bash(cat:*), Bash(ls:*), Bash(tree:*), Bash(python3:*)
 ---
 
@@ -12,8 +12,8 @@ Generate or edit images using OpenAI's GPT Image models through a bundled Python
 
 1. **OPENAI_API_KEY**: Must be configured in `~/.gpt-image.env` or `export OPENAI_API_KEY=<your-key>`
 2. **OPENAI_API_BASE** (optional): Custom API base URL for compatible endpoints (e.g. Azure OpenAI, proxies). Set in `~/.gpt-image.env` or export it.
-3. **Python3 with dependencies**: openai, Pillow. Install via `python3 -m pip install -r ./requirements.txt` if not installed yet.
-4. **Executable**: `./gpt_image.py`
+3. **Python3 with dependencies**: openai, Pillow. Install via `python3 -m pip install -r ${CLAUDE_SKILL_DIR}/requirements.txt` if not installed yet.
+4. **Executable**: `${CLAUDE_SKILL_DIR}/gpt_image.py`
 
 ## Instructions
 
@@ -30,7 +30,7 @@ Generate or edit images using OpenAI's GPT Image models through a bundled Python
 2. Run the script:
 
    ```bash
-   python3 ./gpt_image.py --prompt "description of image" --output "filename.png"
+   python3 ${CLAUDE_SKILL_DIR}/gpt_image.py --prompt "description of image" --output "filename.png"
    ```
 
 3. Show the user the saved image path when complete.
@@ -45,7 +45,7 @@ Generate or edit images using OpenAI's GPT Image models through a bundled Python
 2. Run with input images:
 
    ```bash
-   python3 ./gpt_image.py edit --prompt "editing instructions" --input image1.png image2.png --output "edited.png"
+   python3 ${CLAUDE_SKILL_DIR}/gpt_image.py edit --prompt "editing instructions" --input image1.png image2.png --output "edited.png"
    ```
 
 ## Available Options
@@ -93,13 +93,13 @@ Generate or edit images using OpenAI's GPT Image models through a bundled Python
 ### Generate a simple image
 
 ```bash
-python3 ./gpt_image.py --prompt "A serene mountain landscape at sunset with a lake"
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py --prompt "A serene mountain landscape at sunset with a lake"
 ```
 
 ### Generate with specific size and output
 
 ```bash
-python3 ./gpt_image.py \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py \
   --prompt "Modern minimalist logo for a tech startup" \
   --size 1024x1024 \
   --quality high \
@@ -109,7 +109,7 @@ python3 ./gpt_image.py \
 ### Generate landscape image
 
 ```bash
-python3 ./gpt_image.py \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py \
   --prompt "Futuristic cityscape with flying cars" \
   --size 1536x1024 \
   --output "cityscape.png"
@@ -118,7 +118,7 @@ python3 ./gpt_image.py \
 ### Generate with transparent background
 
 ```bash
-python3 ./gpt_image.py \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py \
   --prompt "A cute cartoon cat mascot" \
   --background transparent \
   --format png \
@@ -128,7 +128,7 @@ python3 ./gpt_image.py \
 ### Generate multiple images
 
 ```bash
-python3 ./gpt_image.py \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py \
   --prompt "Abstract art in the style of Kandinsky" \
   --n 3 \
   --output "art.png"
@@ -137,7 +137,7 @@ python3 ./gpt_image.py \
 ### Edit existing images
 
 ```bash
-python3 ./gpt_image.py edit \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py edit \
   --prompt "Add a rainbow in the sky" \
   --input photo.png \
   --output "photo-with-rainbow.png"
@@ -146,7 +146,7 @@ python3 ./gpt_image.py edit \
 ### Combine multiple reference images
 
 ```bash
-python3 ./gpt_image.py edit \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py edit \
   --prompt "Create a gift basket containing all items shown" \
   --input item1.png item2.png item3.png \
   --output "gift-basket.png"
@@ -155,7 +155,7 @@ python3 ./gpt_image.py edit \
 ### Use a different model
 
 ```bash
-python3 ./gpt_image.py \
+python3 ${CLAUDE_SKILL_DIR}/gpt_image.py \
   --prompt "Detailed portrait of a cat in watercolor style" \
   --model gpt-image-1 \
   --output "cat-portrait.png"

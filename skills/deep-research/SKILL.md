@@ -1,7 +1,7 @@
 ---
 name: deep-research
-description: '深度调研的多Agent编排工作流：把一个调研目标拆成可并行子目标，用 Claude Code 非交互模式（`claude -p`）运行子进程；联网与采集优先使用已安装的 skills，其次使用 MCP 工具；用脚本聚合子结果并分章精修，最终交付"成品报告文件路径 + 关键结论/建议摘要"。用于：系统性网页/资料调研、竞品/行业分析、批量链接/数据集分片检索、长文写作与证据整合，或用户提及"深度调研/Deep Research/Wide Research/多 Agent 并行调研/多进程调研"等场景。'
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, TodoWrite, mcp__firecrawl__firecrawl_scrape, mcp__firecrawl__firecrawl_search, mcp__firecrawl__firecrawl_map, mcp__firecrawl__firecrawl_crawl, mcp__firecrawl__firecrawl_extract, mcp__firecrawl__firecrawl_agent, mcp__plugin_claude-code-settings_exa__web_search_exa, mcp__plugin_claude-code-settings_exa__get_code_context_exa
+description: 'Multi-agent research orchestration: split a research goal into parallel sub-goals, run each via headless `claude -p` subprocesses, aggregate results into a polished report file. Use for systematic web/document research, competitive or industry analysis, batch link/dataset processing, and long-form evidence synthesis. Triggers: "深度调研", "deep research", "wide research", "多 Agent 调研", "系统调研".'
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, TodoWrite, mcp__firecrawl__firecrawl_scrape, mcp__firecrawl__firecrawl_search, mcp__firecrawl__firecrawl_map, mcp__firecrawl__firecrawl_crawl, mcp__firecrawl__firecrawl_extract, mcp__firecrawl__firecrawl_agent, mcp__exa__web_search_exa, mcp__exa__web_fetch_exa
 ---
 
 # Deep Research（深度调研编排工作流）

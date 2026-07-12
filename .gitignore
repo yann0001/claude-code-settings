@@ -177,3 +177,9 @@ WARP.md
 /image-cache
 stats-cache.json
 /backups
+
+# Claude Code local state and tool caches
+.claude/
+.ruff_cache/
+*.local.json
+*.local.md

@@ -1,6 +1,6 @@
 ---
 name: translate
-description: 'Translate English or Japanese tech articles and texts into natural, fluent Chinese. Use this skill when the user wants to translate text to Chinese, asks for Chinese translation, mentions "translate to Chinese", "翻译", provides English/Japanese tech content for translation, or wants any text converted into Chinese. Also trigger when the user pastes text and asks to translate it, or references a file to translate into Chinese.'
+description: 'Translate English or Japanese tech articles into natural, fluent Chinese. Use whenever the user asks for Chinese translation, says "translate to Chinese" or "翻译", or provides English/Japanese content (pasted text or a file) to convert into Chinese. Chinese output only — not for translating into other languages.'
 ---
 
 # Tech Article Translator

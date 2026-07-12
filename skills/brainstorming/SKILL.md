@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "在构建新功能、创建新组件或设计新系统之前使用。通过协作对话探索用户意图、需求和设计方案，再进入实现阶段。当用户描述想要构建的东西且涉及设计决策时触发——不用于 bug 修复、配置变更或实现路径显而易见的任务。"
+description: "Explore user intent, requirements, and design options through collaborative dialogue before implementation. Use before building new features, components, or systems — whenever the user describes something to build and design decisions are involved. Triggers: \"brainstorm\", \"help me design\", \"think through the requirements\", \"头脑风暴\", \"设计方案\", \"梳理需求\". Not for bug fixes, config changes, or tasks with an obvious implementation path."
 ---
 
 # 头脑风暴：从想法到设计

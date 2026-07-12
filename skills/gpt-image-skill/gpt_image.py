@@ -63,13 +63,13 @@ def edit_image(client, args):
     print(f"Editing images with prompt: {args.prompt}")
     print(f"Input images: {args.input}")
 
-    # Open image files
-    image_files = []
+    # Validate all paths before opening any file, so a missing later
+    # path doesn't leave earlier handles open on exit
     for path in args.input:
         if not os.path.exists(path):
             print(f"Error: Input file not found: {path}", file=sys.stderr)
             sys.exit(1)
-        image_files.append(open(path, "rb"))
+    image_files = [open(path, "rb") for path in args.input]
 
     params = {
         "model": args.model,
@@ -118,8 +118,9 @@ def save_results(response, args):
         else:
             print(f"Warning: No image content for result {i + 1}", file=sys.stderr)
 
-    if response.data[0].revised_prompt:
-        print(f"\nRevised prompt: {response.data[0].revised_prompt}")
+    revised_prompt = getattr(response.data[0], "revised_prompt", None)
+    if revised_prompt:
+        print(f"\nRevised prompt: {revised_prompt}")
 
 
 def main():

@@ -1,6 +1,6 @@
 ---
 name: github-review-pr
-description: Review GitHub pull requests with detailed, multi-perspective code analysis using parallel subagents. Use this skill whenever the user wants to review a PR, asks for code review on a pull request, mentions "review PR", "check this PR", "look at pull request", or references a PR number or GitHub PR URL. Also trigger when the user wants feedback on code changes, wants to approve or request changes on a PR, or asks to review someone's contribution.
+description: Review GitHub pull requests with detailed, multi-perspective code analysis using parallel subagents. Use this skill whenever the user wants to review a PR, asks for code review on a pull request, mentions "review PR", "check this PR", "look at pull request", or references a PR number or GitHub PR URL. Do NOT use for local uncommitted changes — this skill only reviews pull requests on GitHub.
 ---
 
 # Review GitHub Pull Request

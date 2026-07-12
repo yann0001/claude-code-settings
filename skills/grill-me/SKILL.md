@@ -1,6 +1,6 @@
 ---
 name: grill-me
-description: 针对方案或设计的高强度追问式面试，过程中同步维护领域模型（术语表和 ADR）。
+description: 针对方案或设计的高强度追问式面试（adversarial design review / grill session），暴露假设漏洞与缺失约束，过程中同步维护领域模型（术语表和 ADR）。手动调用 /grill-me。
 argument-hint: "你要追问的方案/设计是什么？"
 disable-model-invocation: true
 ---

@@ -1,6 +1,7 @@
 {
   "name": "youtube-transcribe-skill",
-  "version": "1.0.3",
+  "displayName": "YouTube Transcribe Skill",
+  "version": "1.1.0",
   "description": "Extract subtitles/transcripts from YouTube videos via CLI or browser automation",
   "author": {
     "name": "Pengfei Ni",

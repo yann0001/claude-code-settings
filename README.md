@@ -29,7 +29,6 @@
 
 # 或者按需安装单个技能
 /plugin install codex-skill               # Codex 自动化
-/plugin install autonomous-skill          # 长时间任务自动化
 /plugin install nanobanana-skill          # 图片生成
 /plugin install youtube-transcribe-skill  # YouTube 字幕提取
 ```
@@ -80,12 +79,13 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 
 **注意：**
 
-1. 默认配置使用 [LiteLLM Proxy Server](https://docs.litellm.ai/docs/simple_proxy) 作为 LLM 网关连接 GitHub Copilot。也可以使用 [copilot-api](https://github.com/ericc-ch/copilot-api) 作为代理（需将端口改为 4141）。
-2. 确保以下模型在你的账户中可用，否则需替换为你自己的模型名：
+1. 仓库根目录的 [settings.json](settings.json) 是作者的配置模板，默认指向 [copilot-api](https://github.com/ericc-ch/copilot-api) 代理（`http://localhost:4141`）。如果按上面的步骤使用 [LiteLLM Proxy Server](https://docs.litellm.ai/docs/simple_proxy)，需把 `ANTHROPIC_BASE_URL` 改为 `http://localhost:4000`。
+2. 确保以下模型在你的账户中可用，否则需替换为你自己的模型名（模型名以你的网关实际提供的为准）：
 
-   - ANTHROPIC_DEFAULT_SONNET_MODEL: claude-sonnet-4.6
-   - ANTHROPIC_DEFAULT_OPUS_MODEL: claude-opus-4.6
-   - ANTHROPIC_DEFAULT_HAIKU_MODEL: gpt-5-mini
+   - ANTHROPIC_DEFAULT_SONNET_MODEL: claude-sonnet-4-6
+   - ANTHROPIC_DEFAULT_OPUS_MODEL: claude-opus-4-6
+   - ANTHROPIC_DEFAULT_HAIKU_MODEL: claude-haiku-4-5
+3. 模板中 `defaultMode` 为 `acceptEdits`（自动接受文件编辑但保留命令确认）。如需完全跳过权限确认可自行改为 `bypassPermissions`，但请了解其安全风险后再启用。
 
 ## 技能列表
 
@@ -128,25 +128,6 @@ Please visit https://github.com/login/device and enter code XXXX-XXXX to authent
 - 可恢复会话
 
 **依赖：** Codex CLI（`npm i -g @openai/codex` 或 `brew install codex`）
-
-</details>
-
-<details>
-<summary><b>autonomous-skill</b> — 长时间任务自动化</summary>
-
-### [autonomous-skill](plugins/autonomous-skill)
-
-跨多个会话执行复杂的长时间任务，采用双代理模式（Initializer + Executor），支持自动会话续接。
-
-**核心特性：**
-
-- 双代理模式（Initializer 创建任务列表，Executor 逐步执行）
-- 跨会话自动续接与进度追踪
-- 任务隔离，每个任务有独立目录（`.autonomous/<task-name>/`）
-- 通过 `task_list.md` 和 `progress.md` 持久化进度
-- 使用 Claude CLI headless 模式执行
-
-**依赖：** Claude CLI
 
 </details>
 
@@ -384,8 +365,8 @@ bash ~/.claude/scripts/update-cc-plugins.sh
     { "name": "ANTHROPIC_BASE_URL", "value": "http://localhost:4000" },
     { "name": "ANTHROPIC_AUTH_TOKEN", "value": "sk-dummy" },
     { "name": "ANTHROPIC_MODEL", "value": "opusplan" },
-    { "name": "ANTHROPIC_DEFAULT_SONNET_MODEL", "value": "claude-sonnet-4.6" },
-    { "name": "ANTHROPIC_DEFAULT_OPUS_MODEL", "value": "claude-opus-4.6" },
+    { "name": "ANTHROPIC_DEFAULT_SONNET_MODEL", "value": "claude-sonnet-4-6" },
+    { "name": "ANTHROPIC_DEFAULT_OPUS_MODEL", "value": "claude-opus-4-6" },
     { "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL", "value": "gpt-5-mini" },
     { "name": "DISABLE_TELEMETRY", "value": "1" }
   ]

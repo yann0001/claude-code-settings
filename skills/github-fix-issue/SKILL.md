@@ -1,6 +1,6 @@
 ---
 name: github-fix-issue
-description: Fix GitHub issues end-to-end — from analysis through branch creation, implementation, testing, and PR submission. Use this skill whenever the user mentions fixing a GitHub issue, resolving a bug from an issue tracker, working on a GitHub issue number, or says things like "fix issue #123", "work on this issue", "resolve the bug in issue", or references a GitHub issue URL. Also trigger when the user wants to investigate and implement a fix for a reported problem on GitHub.
+description: Fix GitHub issues end-to-end — analysis, branch creation, implementation, testing, and PR submission. Use whenever the user mentions fixing a GitHub issue, says "fix issue #123", "work on this issue", "修复 issue", or references a GitHub issue number or URL.
 ---
 
 # Fix GitHub Issue

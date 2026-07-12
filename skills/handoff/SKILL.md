@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: 将当前对话压缩为交接文档，供下一个 agent 接续工作。
+description: 将当前对话压缩为交接文档（handoff document / session handoff brief），供下一个 agent 接续工作。手动调用 /handoff。
 argument-hint: "下一个会话的重点方向，例如：'完成 API 集成测试'"
 disable-model-invocation: true
 ---

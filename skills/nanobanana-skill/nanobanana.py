@@ -12,17 +12,6 @@ from io import BytesIO
 # Load environment variables
 load_dotenv(os.path.expanduser("~") + "/.nanobanana.env")
 
-# Google API configuration from environment variables
-api_key = os.getenv("GEMINI_API_KEY") or ""
-
-if not api_key:
-    raise ValueError(
-        "Missing GEMINI_API_KEY environment variable. Please check your .env file."
-    )
-
-# Initialize Gemini client
-client = genai.Client(api_key=api_key)
-
 # Aspect ratio to resolution mapping
 ASPECT_RATIO_MAP = {
     "1024x1024": "1:1",  # 1:1
@@ -92,6 +81,17 @@ def main():
     )
 
     args = parser.parse_args()
+
+    # Google API configuration from environment variables
+    api_key = os.getenv("GEMINI_API_KEY") or ""
+    if not api_key:
+        parser.error(
+            "Missing GEMINI_API_KEY environment variable. "
+            "Set it in ~/.nanobanana.env or export it."
+        )
+
+    # Initialize Gemini client
+    client = genai.Client(api_key=api_key)
 
     # Get aspect ratio from size
     aspect_ratio = ASPECT_RATIO_MAP.get(args.size, "16:9")
